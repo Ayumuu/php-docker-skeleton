@@ -15,14 +15,13 @@ services:
     build: ./docker/php-fpm
     volumes:
         - ./:/var/www
-#        - ./docker/php-fpm/conf/www.conf:/usr/local/etc/php-fpm.d/www.conf
+        - ./docker/php-fpm/conf/www.conf:/usr/local/etc/php-fpm.d/www.conf
     depends_on:
       - mysql
   workspace:
     build: ./docker/workspace
     depends_on:
       - mysql
-
   mysql:
     image: mysql:latest
     volumes:
